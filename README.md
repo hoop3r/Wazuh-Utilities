@@ -11,4 +11,4 @@ Scripts are designed to facilitate the installation and configuration of Wazuh c
 ### In Development:
 
 - CentOS/Fedora agent installation
-- Windows PowerShell agent installation
+- Windows agent installation
