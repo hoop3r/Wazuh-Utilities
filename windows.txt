@@ -1,0 +1,5 @@
+https://packages.wazuh.com/4.x/windows/wazuh-agent-4.9.2-1.msi
+
+.\wazuh-agent-4.9.2-1.msi /q WAZUH_MANAGER="172.20.240.10"
+
+NET START Wazuh
