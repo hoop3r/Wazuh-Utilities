@@ -6,9 +6,10 @@ Scripts are designed to facilitate the installation and configuration of Wazuh c
 
 ### Completed:
 
-- Debian/Ubuntu agent installation
+- Windows agent installation docs
 
-### In Development:
+### In Progress:
 
-- CentOS/Fedora agent installation
-- Windows agent installation
+- Installation & configuration of central components 
+- Bug testing & improving Debian/Ubuntu agent installation
+- Bug testing & improving Red Hat agent installation
