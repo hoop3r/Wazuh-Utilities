@@ -9,11 +9,10 @@ References: https://documentation.wazuh.com/current/index.html
 ### Completed:
 
 - Windows agent installation docs
+- Linux agent installation scripts
+
 
 ### In Progress:
 
-- Writing agent configuration script
-- Bug testing server installation 
-- Bug testing Debian/Ubuntu agent installation
-- Bug testing Red Hat agent installation
+- Add further configuration to agent install scripts 
 

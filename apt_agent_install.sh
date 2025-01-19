@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+agent took ~ 7 minutes to show up on dashboard... will troubleshoot this
+
 if [[ $EUID -ne 0 ]]; then
     echo "This script must be run as root" >&2
     exit 1
@@ -10,12 +12,11 @@ KEYRING_PATH="/usr/share/keyrings/wazuh.gpg"
 WAZUH_REPO_FILE="/etc/apt/sources.list.d/wazuh.list"
 AGENT_CONF="/var/ossec/etc/ossec.conf"
 
-echo "Enter manager ip: "
-read WAZUH_MANAGER
-echo "Enter agent name: "
-read AGENT_NAME
-echo "Enter agent group: "
-read AGENT_GROUP
+read -p "Enter manager IP: " WAZUH_MANAGER
+
+echo "Creating backup . . ."
+
+cp "$AGENT_CONF" "${AGENT_CONF}.bak"
 
 echo "Importing Wazuh GPG key..."
 if ! curl -s "$WAZUH_GPG_KEY" | gpg --no-default-keyring --keyring gnupg-ring:"$KEYRING_PATH" --import; then
@@ -49,9 +50,8 @@ systemctl start wazuh-agent || {
 
 if [[ -f $AGENT_CONF ]]; then
     echo "Updating config in $AGENT_CONF..."
-    sed -i "s/<address>.*</address>/<address>$WAZUH_MANAGER</address>/" "$AGENT_CONF"
-    sed -i "s|<name>.*</name>|<name>$AGENT_NAME</name>|" "$AGENT_CONF"
-    sed -i "s|<group>.*</group>|<group>$AGENT_GROUP</group>|" "$AGENT_CONF"
+    sed -i "s#<address>.*</address>#<address>$WAZUH_MANAGER</address>#g" "$AGENT_CONF"
+    # 
     systemctl restart wazuh-agent || {
         echo "Failed to restart wazuh-agent after configuration."
         exit 1
@@ -69,4 +69,7 @@ if ! apt update; then
     exit 1
 fi
 
-echo "Wazuh agent installation and configuration complete."
+echo "Wazuh agent installation complete."
+
+
+
