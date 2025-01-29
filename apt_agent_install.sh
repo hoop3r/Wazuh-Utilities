@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
-
-agent took ~ 7 minutes to show up on dashboard... will troubleshoot this
+#
+# Author: Nicholas Hooper
+# Description:
+# Install & Configure Wazuh Agent ( apt )
+# Usage:
+# ./<Script_Name>
 
 if [[ $EUID -ne 0 ]]; then
     echo "This script must be run as root" >&2

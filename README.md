@@ -10,9 +10,9 @@ References: https://documentation.wazuh.com/current/index.html
 
 - Windows agent installation docs
 - Linux agent installation scripts
-
+- Docker server installation script
 
 ### In Progress:
 
-- Add further configuration to agent install scripts 
-
+- Add custom configurations for agent installations 
+- Automated password update for docker server

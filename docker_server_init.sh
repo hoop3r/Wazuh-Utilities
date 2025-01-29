@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #
 # Author: Nicholas Hooper
+# Description:
 # Initializes Wazuh Server Central Components via Docker 
 # Usage:
 # ./<Script_Name>

@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+#
+# Author: Nicholas Hooper
+# Description:
+# Install & Configure Wazuh Agent ( yum )
+# Usage:
+# ./<Script_Name>
 
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root." >&2
